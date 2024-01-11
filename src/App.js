@@ -12,19 +12,31 @@ const App = () => {
   
     <div className="App">
       <Router>
-        <Header />
         <Routes>
           <Route path="/" 
           element={
             <>
+              <Header />
               <TinderCards />
               <SwipeButtons />
             </>
           } 
           
           />
-          <Route path="/chats" element={ <ChatList /> } />
-          <Route path="/chat/:id" element={ <IndividualChat /> } />
+          <Route path="/chats" 
+          element={ 
+          <>
+            <Header backButton="/" />
+            <ChatList /> 
+          </>
+          } />
+          <Route path="/chat/:id" 
+          element={ 
+          <>
+            <Header backButton="/chats" />
+            <IndividualChat /> 
+          </>  
+          } />
         </Routes>
       </Router>
 
